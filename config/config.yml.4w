@@ -1,0 +1,11 @@
+shared:
+  domain: "192.168.168.151"
+  namespace: "hm"
+  company_name: "Hansen-Mueller"
+  company_url: "http://66.23.235.144"
+  system_email: "salmanfasith014@gmail.com"
+  contact_email: "salmanfasith014@gmail.com"
+  lading_requests_email: "salmanfasith014@gmail.com"
+
+production:
+  ga_account: "UA-3287978-15"

@@ -1,0 +1,5 @@
+Hello <%= @user.first_name %>,
+
+Somebody clicked the "forgot log in" link on <%= home_url %> using your email address.
+
+Your log in is <%= @user.web_user_id %>. If you forgot your password too, you can reset it here: <%= new_password_url %>

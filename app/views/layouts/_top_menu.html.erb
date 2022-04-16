@@ -1,0 +1,32 @@
+<div class="header <%= Hmcustomers.config.namespace %>">
+  <div class="logo">
+    <h1>
+      <a href="<%= Hmcustomers.config.company_url %>">
+        <img src="<%= logo_path %>"/>
+      </a>
+    </h1>
+	</div>
+	<div class="top-menu">
+		<ul>
+		<% if logged_in? -%>
+			<li><%= link_to 'Account Settings', profile_path -%></li>
+			<li>|</li>
+		  <li><%= link_to 'Logout', logout_path -%></li>
+		<% end -%>
+		</ul>
+		<% if logged_in? && customers_for_select.size > 1 -%>
+		<div class="customer-form-container">
+		  <% form_tag home_path, id: 'select_customer_form',
+	           label_width: 0, width: 140, controls_width: 130, ajax_form: true do |f| -%>
+			     <%= f.select_tag 'customer',
+	               customers_for_select,
+	               value: current_customer.cust_id,
+			           hide_label: true,
+			           listeners: "{select: function(){Ext.getCmp('select_customer_form').getForm().submit()}}"
+	         %>
+           <%= f.hidden_field_tag :location, controller_name %>
+	    <% end -%>
+		</div>
+		<% end -%>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+<%= form_for :report, url: proof_of_yield_path, html: { id: "proof_of_yield_report_form" } do |f| %>
+  <%= f.select :cust_id, customer_split_codes_for_select(current_customer), label: "Customer", validation: {allow_blank: false} %>
+  <%= f.select :comm_name, all_commodities_for_select, label: "Commodity", validation: {allow_blank: false} %>
+  <%= f.date_field :start_date,
+                   label: "Start Date",
+                   validation: {allow_blank: false},
+                   min_value: current_customer.date_created,
+                   max_value: Date.today
+  %>
+  <%= f.date_field :end_date,
+                   label: "End Date",
+                   validation: {allow_blank: false},
+                   min_value: current_customer.date_created,
+                   max_value: Date.today
+  %>
+<% end %>

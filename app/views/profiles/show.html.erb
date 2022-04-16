@@ -1,0 +1,38 @@
+<% page_title "Profile" %>
+
+<h1>Your Profile</h1>
+
+<div class='form-wrapper'>
+  <%= error_messages_for :user %>
+
+  <%= form_for :user, url: profile_path, html: { method: :put } do |f| %>
+    <%= f.misc_field :full_name %>
+    <%= f.misc_field :email_address, label: "Email" %>
+    <%= f.misc_field :company_name %>
+    <%= f.misc_field :phone_number %>
+    <%= f.text_field :web_user_id, label: "Username", :validation => {:allow_blank => false} %>
+    <%= f.password_field :new_password, :validation => {:vtype => 'password'}, :validator => 'checkConfirmation' %>
+    <%= f.password_field :new_password_confirmation, :label => 'Confirm New Password', :validation => {:vtype => 'passwordConfirmation', :password_field => 'user_new_password' } %>
+    <%= f.submit_button "Save Changes" %>
+  <% end %>
+</div>
+
+<h1>Screen Settings</h1>
+
+<div class='form-wrapper'>
+  <%= button 'Restore Defaults', :handler => 'resetUI'%>
+</div>
+
+<script type="text/javascript">
+  function checkConfirmation(value) {
+    var passwordConfirmation = Ext.getCmp('user_new_password_confirmation');
+    if( Ext.isEmpty(value) ) {
+      passwordConfirmation.allowBlank = true;
+    } else {
+      passwordConfirmation.allowBlank = false;
+    }
+    // passwordConfirmation.validateValue(passwordConfirmation.getValue());
+    passwordConfirmation.validate();
+    return true;
+  }
+</script>

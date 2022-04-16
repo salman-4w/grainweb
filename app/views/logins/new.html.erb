@@ -1,0 +1,10 @@
+<% page_title "Forgot Username" %>
+
+<div class="center">
+  <%= form_tag login_path,
+      handle_enter_key: true, label_width: 75, label_align: "top",
+      width: 370, controls_width: 130 do |f| -%>
+    <%= f.text_field_tag "email", nil, label: "Your Email", validation: {allow_blank: false, vtype: "email"} %>
+    <%= f.submit_button "Submit" %>
+  <% end -%>
+</div>

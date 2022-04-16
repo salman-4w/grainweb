@@ -1,0 +1,11 @@
+<% page_title "Home" %>
+
+<h1>Welcome to your GrainWeb account</h1>
+
+<p>Please choose a tab on the left to view detailed information about your account with <%= Hmcustomers.config.company_name %>. Please <%= link_to "contact us", contact_path %> with any questions or additions you'd like to see to GrainWeb.</p>
+
+<div class="center">
+  <div class="list" id="customer_info">
+    <%= render "customer_info", customer: current_customer %>
+  </div>
+</div>

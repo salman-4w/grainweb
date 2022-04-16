@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <%= stylesheet_link_merged :base %>
+    <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
+    <%= javascript_include_merged :base %>
+
+    <!--[if lte IE 6]><%= stylesheet_link_tag 'lib/ie', :media => 'screen' %><![endif]-->
+
+    <%= yield :head %>
+    <title><%= yield :title %></title>
+  </head>
+  <body>
+      <div id="messages">
+        <% if flash[:notice] %>
+          <span class='notice'><%= flash[:notice] %></span>
+        <% elsif flash[:error] %>
+          <span class='error'><%= flash[:error] %></span>
+        <% else %>
+          <span class='placeholder'>&nbsp;</span>
+        <% end %>
+      </div>
+    <div id="page">
+      <%= render 'layouts/top_menu' %>
+      <div id="body" class="wrapper">
+        <%= render 'layouts/left_menu' %>
+        <div id="content">
+          <%= yield %>
+        </div>
+      </div>
+    <div id="footer">
+      <% if current_user %>
+      <p>Need help? Have a suggestion? <%= link_to 'Contact Us', contact_path %>
+      <% end %>
+    </div>
+    </div>
+    <% if Rails.env.production? %>
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '<%= Hmcustomers.config.ga_account %>']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+    <% end %>
+  </body>
+  <%= yield :bottom %>
+</html>

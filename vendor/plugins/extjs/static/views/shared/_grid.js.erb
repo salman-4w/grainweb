@@ -1,0 +1,127 @@
+//global array for holding all rendered grids
+if( typeof(GRIDS) == "undefined" ) {
+  var GRIDS = [];
+}
+
+var grid_for_<%= div_id -%> = null;
+var dataStore_for_<%= div_id -%> = null;
+var filters_for_<%= div_id -%> = null;
+var pagingBar_for_<%= div_id -%> = null;
+
+Ext.onReady(function(){
+<% if stateful -%>
+  Ext.state.Manager.setProvider(new Ext.state.UserSessionProvider());
+<% end -%>
+
+  dataStore_for_<%= div_id -%> = new Ext.data.JsonStore({
+    proxy: new Ext.data.HttpProxy({url: '<%= url -%>', method: 'GET'}),
+    root: 'data',
+    totalProperty: 'total',
+    idProperty: 'id',
+    remoteSort: true,
+
+    fields: [<%= grid_fields(mapping) -%>]
+  });
+  dataStore_for_<%= div_id -%>.setDefaultSort('<%= default_sort.first -%>', '<%= default_sort.last -%>');
+
+  <% if filters -%>
+  Ext.menu.RangeMenu.prototype.icons = {
+    gt: '/images/greater_then.png',
+    lt: '/images/less_then.png',
+    eq: '/images/equals.png'
+  };
+
+  Ext.grid.filter.StringFilter.prototype.icon = '/images/find.png';
+
+  filters_for_<%= div_id -%> = new Ext.grid.GridFilters({
+    filters: [
+      <%= filters.map {|filter| "{type: '#{filter[:type]}', dataIndex: '#{filter[:grid_id]}'}" }.join(',') -%>
+  ]});
+  <% end -%>
+
+  pagingBar_for_<%= div_id -%> = new Ext.PagingToolbar({
+    pageSize: 20,
+    <%= "plugins: filters_for_#{div_id}," if filters -%>
+    store: dataStore_for_<%= div_id -%>,
+    displayInfo: true,
+    displayMsg: 'Displaying <%= items_title -%> {0} - {1} of {2}',
+    emptyMsg: "No <%= items_title -%> to display"
+  });
+
+  var width = <%= width || "Ext.get('body').getWidth() - 175".html_safe -%>;
+  // Actual grid height depends on browser and OS
+  <% if height -%>
+  var height = <%= height -%>;
+  <% else %>
+  if( Ext.isGecko ) {
+    var height = Ext.isMac ? 530 : 525;
+  } else if( Ext.isSafari || (Ext.isMac && Ext.isChrome) ) {
+    var height = 505;
+  } else {
+    var height = 545;
+  }
+  <% end -%>
+
+  var columns = [<%= grid_columns(mapping, editors) -%>];
+
+  <%= record_variable(class_name, editors) if editors -%>
+
+  grid_for_<%= div_id -%> = new Ext.grid.<%= editors ? 'EditorGridPanel' : 'GridPanel' -%>({
+    el: '<%= div_id -%>',
+    height: height,
+    width: width,
+    store: dataStore_for_<%= div_id -%>,
+    loadMask: true,
+    columns: columns,
+    stateful: <%= stateful %>,
+    <%= "stateId: 'state_for_#{div_id}',".html_safe unless div_id == 'data_grid' %>
+
+    viewConfig: {
+      forceFit: true,
+      scrollOffset: 1
+    },
+
+    <%
+       plugins = []
+       plugins << "filters_for_#{div_id}" if filters
+       plugins << "new Ext.ux.grid.GridSummary()" if summary_required?(mapping)
+    -%>
+
+    <%= "plugins: [#{plugins.join(",")}]," if plugins -%>
+
+    <% if search_bar || print_button %>
+    tbar: [
+      <% if search_bar %>
+      'Search: ', ' ',
+      new Ext.app.SearchField({
+        store: dataStore_for_<%= div_id -%>,
+        width:320
+      }) <%= "," if print_button %>
+      <% end %>
+      <% if print_button %>
+      '->',
+      { text: 'Print',
+        iconCls: 'print-icon',
+        handler: function(button) { Ext.grid.PrintGrid(grid_for_<%= div_id -%>); }
+      }
+      <% end %>
+    ],
+    <% end -%>
+
+    bbar: pagingBar_for_<%= div_id -%>,
+
+    <%= custom_elements if custom_elements -%>
+
+    <%= "title: \"#{title}\",".html_safe if title -%>
+
+    sm: new Ext.grid.RowSelectionModel({singleSelect: <%= !select_multiple_rows %>})
+  });
+
+  // Set forceFit property explicitly, because configuration option was ignored for unknown reason.
+  grid_for_<%= div_id -%>.getView().forceFit = true;
+  grid_for_<%= div_id -%>.getView().scrollOffset = 1;
+
+  grid_for_<%= div_id -%>.render();
+  GRIDS.push(grid_for_<%= div_id -%>);
+  dataStore_for_<%= div_id -%>.load({params:{start:0, limit:20}});
+});

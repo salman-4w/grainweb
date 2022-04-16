@@ -1,0 +1,16 @@
+<dl>
+	<dt>Customer ID:</dt>
+	<dd><%= customer.cust_id %></dd>
+</dl>
+<dl>
+	<dt>Company Name:</dt>
+	<dd><%= customer.company %></dd>
+</dl>
+<dl>
+	<dt>City:</dt>
+	<dd><%= customer.bill.city %></dd>
+</dl>
+<dl>
+	<dt>State:</dt>
+	<dd><%= customer.bill.try(:state).try(:full_name) %></dd>
+</dl>

@@ -1,0 +1,63 @@
+<div class="list" id="contract_<%= @contract.id %>_terms_container"></div>
+<script type="text/javascript" charset="utf-8">
+Ext.onReady(function(){
+  new Ext.Panel({
+	  renderTo: 'contract_<%= @contract.id %>_terms_container',
+    region: 'center',
+    layout: 'sections',
+    layoutConfig: {
+      fill: false,
+      animate: true
+    },
+    items: [
+    { title: "Basics",
+      border: false,
+      html: "<dl><dt>Contract Number:</dt><dd><%= @contract.cont_id%></dd></dl>" +
+        "<dl><dt>Contract Date:</dt><dd><%= @contract.cont_date %></dd></dl>" +
+        "<dl><dt>PO Number:</dt><dd><%= @contract.po_number %></dd></dl>" +
+        "<dl><dt>Merchant:</dt><dd><%= @contract.merchant_name %></dd></dl>" +
+        "<dl><dt>Customer:</dt><dd><%= @contract.customer_name %></dd></dl>"
+    },
+    { title: "Specs",
+      border: false,
+      html: "<dl><dt>Commodity:</dt><dd><%= @contract.commodity_name %></dd></dl>" +
+	      "<dl><dt>Grade:</dt><dd><%= @contract.grade.grade_id if @contract.grade %></dd></dl>" +
+        "<dl><dt>Quantity:</dt><dd><%= format_number @contract.qty %> <%= @contract.unit_type.long_name %></dd></dl>" +
+        "<dl><dt>Weights:</dt><dd><%= @contract.human_weights %></dd></dl>" +
+        "<dl><dt>Grades:</dt><dd><%= @contract.human_grades %></dd></dl>"
+    },
+		{ title: "Shipment Info",
+      border: false,
+      html: '<dl><dt>Location:</dt><dd><%= @contract.location %></dd></dl>' +
+			      '<dl><dt>Purchase/Sale:</dt><dd><%= @contract.human_purchase_sale %></dd></dl>' +
+						'<dl><dt>FOB/Delivered:</dt><dd><%= @contract.human_fob_delivered %></dd></dl>' +
+						'<dl><dt>Start Date:</dt><dd><%= @contract.ship_start %></dd></dl>' +
+						'<dl><dt>End Date:</dt><dd><%= @contract.ship_end %></dd></dl>'
+		},
+		{ title: 'Price',
+      border: false,
+      html: '<dl><dt>Flat Price:</dt><dd><%= @contract.cont_price %></dd></dl>' +
+			      '<dl><dt>Basis:</dt><dd><%= format_number @contract.basis %> <%= @contract.future_month_code_and_year %></dd></dl>' +
+						'<dl><dt>Futures:</dt><dd><%= @contract.fut_used %></dd></dl>'
+		},
+		{ title: 'Reports',
+      border: false,
+			<% cust_id = current_customer.cust_id
+				 contract_id = @contract.id
+				 pricings = pricings_array @contract.pricings -%>
+				 html: "<dl><dt></dt><dd>" +
+				   "<a href=\"#\" onclick=\"printContractReport('<%= contract_id %>', 'pricing', null); return false;\">Pricing</a>" +
+					 "</dd></dl>" +
+					 "<dl><dt></dt><dd>" +
+						 "<a href=\"#\" onclick=\"printContractReport('<%= contract_id %>', 'confirmation', null); return false;\">Confirmation</a>" +
+					 "</dd></dl>" +
+					 "<dl><dt></dt><dd>" +
+						 "<a href=\"#\" onclick=\"printContractReport('<%= contract_id %>', 'ticket_applications', <%= pricings %>); return false;\">Ticket Applications</a>" +
+					"</dd></dl>" +
+					"<dl><dt></dt><dd>" +
+						"<a href=\"#\" onclick=\"printContractReport('<%= contract_id %>', 'ticket_dollars', <%= pricings %>); return false;\">Ticket Dollars</a>" +
+					"</dd></dl>"
+		}]
+  });
+});
+</script>

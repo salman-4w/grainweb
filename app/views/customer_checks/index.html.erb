@@ -1,0 +1,33 @@
+<% page_title "Checks" %>
+
+<%= stateful_ui current_user, :checks_grid %>
+
+<% render_grid url: checks_path,
+     klass: GrnCheck,
+     title: "Checks",
+     items_title: "checks",
+     print_button: true,
+     search_bar: true,
+     html: {id: "checks_grid"} do -%>
+  tbar: [
+    <%= commodity_filter_menu %>,
+    'Search: ', ' ',
+    new Ext.app.SearchField({
+      store: dataStore_for_checks_grid,
+      width:320
+    }),
+    '->',
+    { text: 'Print',
+      iconCls: 'print-icon',
+      handler: function(button) { Ext.grid.PrintGrid(grid_for_checks_grid); }
+    }],
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+Ext.onReady( function() {
+  // change grid height to remove vertical scrollbar
+  var bbarOffset = 20;
+  var originalHeigth = grid_for_checks_grid.getHeight();
+  grid_for_checks_grid.setHeight(originalHeigth + bbarOffset);
+});
+</script>

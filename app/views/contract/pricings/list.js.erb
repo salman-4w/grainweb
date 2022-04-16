@@ -1,0 +1,13 @@
+<%= stateful_ui current_user, :contract_pricing_grid %>
+
+<%= render_grid url: contract_pricings_path(@contract),
+                klass: ContPricing,
+                items_title: "pricings",
+                size: "780x440",
+                html: {id: "contract_pricing_grid"},
+                print_button: true,
+                search_bar: true
+-%>
+<script type="text/javascript" charset="utf-8">
+resizeGrid(grid_for_contract_pricing_grid, <%= @contract.id %>);
+</script>

@@ -1,0 +1,6 @@
+Hello fourW,
+
+Somebody clicked the 'forgot log in' link on https://www.hmcustomers.com/  using your email address.
+
+Your log in is 4WT. If you forgot your password too, you can reset it here: https://www.hmcustomers.com/password/new
+

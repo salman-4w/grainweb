@@ -1,0 +1,340 @@
+# Logfile created on 2022-04-15 13:55:44 -0400 by logger.rb/41954
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 13:55:44 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 13:57:19 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 13:57:54 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 13:58:08 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:00:37 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:01:10 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:06:07 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:19:18 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [6537d259] Running /usr/bin/env mkdir -p /tmp as root@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:21:01 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [4792c8fd] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:38:32 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ca76ca34] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:40:16 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [afb26f31] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:41:30 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fdd1d615] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [fdd1d615] Finished in 10.347 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-2bb3d8ae65b4275da841.sh 100.0%
+  INFO [d1bfe981] Running /usr/bin/env chmod 700 /tmp/git-ssh-2bb3d8ae65b4275da841.sh as hmrr@192.168.168.151
+  INFO [d1bfe981] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [16b35ee2] Running /usr/bin/env git ls-remote git@github.com:salman-4w/grainweb.git HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:46:24 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fd19f6c3] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [fd19f6c3] Finished in 11.423 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-6b9df675be53bc200a5d.sh 100.0%
+  INFO [01b288e2] Running /usr/bin/env chmod 700 /tmp/git-ssh-6b9df675be53bc200a5d.sh as hmrr@192.168.168.151
+  INFO [01b288e2] Finished in 0.010 seconds with exit status 0 (successful).
+  INFO [90471b92] Running /usr/bin/env git ls-remote git@github.com:salman-4w/grainweb.git HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-15 14:49:19 -0400 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d5abfd46] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [d5abfd46] Finished in 7.006 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-1a048bbcd8120d98f24e.sh 100.0%
+  INFO [8c596bff] Running /usr/bin/env chmod 700 /tmp/git-ssh-1a048bbcd8120d98f24e.sh as hmrr@192.168.168.151
+  INFO [8c596bff] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [a2a0798c] Running /usr/bin/env git ls-remote git@github.com:salman-4w/grainweb.git HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:04:16 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [6b14408b] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [6b14408b] Finished in 5.536 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-0f110c10453f9ef44b6c.sh 100.0%
+  INFO [96910120] Running /usr/bin/env chmod 700 /tmp/git-ssh-0f110c10453f9ef44b6c.sh as hmrr@192.168.168.151
+  INFO [96910120] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [2443f238] Running /usr/bin/env git ls-remote git@github.com:salman-4w/grainweb.git HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:06:10 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:08:25 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:09:23 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:10:06 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:12:10 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:14:43 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:21:48 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [46f436de] Running /usr/bin/env mkdir -p /tmp as root@localhost
+ DEBUG [46f436de] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:22:32 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [0344269f] Running /usr/bin/env mkdir -p /tmp as hmrr@localhost
+ DEBUG [0344269f] Command: /usr/bin/env mkdir -p /tmp
+  INFO [0344269f] Finished in 6.453 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-0d163c4f25275aa21eea.sh 0.0%
+  INFO Uploading /tmp/git-ssh-0d163c4f25275aa21eea.sh 100.0%
+  INFO [74ddfeb2] Running /usr/bin/env chmod 700 /tmp/git-ssh-0d163c4f25275aa21eea.sh as hmrr@localhost
+ DEBUG [74ddfeb2] Command: /usr/bin/env chmod 700 /tmp/git-ssh-0d163c4f25275aa21eea.sh
+  INFO [74ddfeb2] Finished in 0.046 seconds with exit status 0 (successful).
+  INFO [e7007621] Running /usr/bin/env git ls-remote git@github.com:salman-4w/hmcustomers.git HEAD as hmrr@localhost
+ DEBUG [e7007621] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0d163c4f25275aa21eea.sh" ; /usr/bin/env git ls-remote git@github.com:salman-4w/hmcustomers.git HEAD )
+ DEBUG [e7007621] 	git@github.com: Permission denied (publickey).
+ DEBUG [e7007621] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:23:55 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [3859ccd4] Running /usr/bin/env mkdir -p /tmp as hmrr@localhost
+ DEBUG [3859ccd4] Command: /usr/bin/env mkdir -p /tmp
+  INFO [3859ccd4] Finished in 5.507 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-fb05306ca784a4640cc3.sh 0.0%
+  INFO Uploading /tmp/git-ssh-fb05306ca784a4640cc3.sh 100.0%
+  INFO [7f9edaa5] Running /usr/bin/env chmod 700 /tmp/git-ssh-fb05306ca784a4640cc3.sh as hmrr@localhost
+ DEBUG [7f9edaa5] Command: /usr/bin/env chmod 700 /tmp/git-ssh-fb05306ca784a4640cc3.sh
+  INFO [7f9edaa5] Finished in 0.050 seconds with exit status 0 (successful).
+  INFO [b05c32b7] Running /usr/bin/env git ls-remote  HEAD as hmrr@localhost
+ DEBUG [b05c32b7] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-fb05306ca784a4640cc3.sh" ; /usr/bin/env git ls-remote  HEAD )
+ DEBUG [b05c32b7] 	fatal: 'HEAD' does not appear to be a git repository
+ DEBUG [b05c32b7] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:25:08 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2e4a22b9] Running /usr/bin/env mkdir -p /tmp as hmrr@localhost
+ DEBUG [2e4a22b9] Command: /usr/bin/env mkdir -p /tmp
+  INFO [2e4a22b9] Finished in 5.352 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-02e0e00c11448803c68d.sh 0.0%
+  INFO Uploading /tmp/git-ssh-02e0e00c11448803c68d.sh 100.0%
+  INFO [439f5523] Running /usr/bin/env chmod 700 /tmp/git-ssh-02e0e00c11448803c68d.sh as hmrr@localhost
+ DEBUG [439f5523] Command: /usr/bin/env chmod 700 /tmp/git-ssh-02e0e00c11448803c68d.sh
+  INFO [439f5523] Finished in 0.047 seconds with exit status 0 (successful).
+  INFO [076087f3] Running /usr/bin/env git ls-remote git@github.com:salman-4w/hmcustomers.git HEAD as hmrr@localhost
+ DEBUG [076087f3] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-02e0e00c11448803c68d.sh" ; /usr/bin/env git ls-remote git@github.com:salman-4w/hmcustomers.git HEAD )
+ DEBUG [076087f3] 	git@github.com: Permission denied (publickey).
+ DEBUG [076087f3] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:33:23 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [c1a6e593] Running /usr/bin/env mkdir -p /tmp as hmrr@localhost
+ DEBUG [c1a6e593] Command: /usr/bin/env mkdir -p /tmp
+  INFO [c1a6e593] Finished in 7.541 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-0e4817522b52e88ab50b.sh 0.0%
+  INFO Uploading /tmp/git-ssh-0e4817522b52e88ab50b.sh 100.0%
+  INFO [3b645970] Running /usr/bin/env chmod 700 /tmp/git-ssh-0e4817522b52e88ab50b.sh as hmrr@localhost
+ DEBUG [3b645970] Command: /usr/bin/env chmod 700 /tmp/git-ssh-0e4817522b52e88ab50b.sh
+  INFO [3b645970] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [b7526cef] Running /usr/bin/env git ls-remote  HEAD as hmrr@localhost
+ DEBUG [b7526cef] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0e4817522b52e88ab50b.sh" ; /usr/bin/env git ls-remote  HEAD )
+ DEBUG [b7526cef] 	fatal: 'HEAD' does not appear to be a git repository
+ DEBUG [b7526cef] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:34:16 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a347d20a] Running /usr/bin/env mkdir -p /tmp as hmrr@localhost
+ DEBUG [a347d20a] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a347d20a] Finished in 5.152 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-185bc1f628a28f45e824.sh 0.0%
+  INFO Uploading /tmp/git-ssh-185bc1f628a28f45e824.sh 100.0%
+  INFO [795134c0] Running /usr/bin/env chmod 700 /tmp/git-ssh-185bc1f628a28f45e824.sh as hmrr@localhost
+ DEBUG [795134c0] Command: /usr/bin/env chmod 700 /tmp/git-ssh-185bc1f628a28f45e824.sh
+  INFO [795134c0] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [482c6b3d] Running /usr/bin/env git ls-remote  HEAD as hmrr@localhost
+ DEBUG [482c6b3d] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-185bc1f628a28f45e824.sh" ; /usr/bin/env git ls-remote  HEAD )
+ DEBUG [482c6b3d] 	fatal: 'HEAD' does not appear to be a git repository
+ DEBUG [482c6b3d] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:36:24 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e7cc9719] Running /usr/bin/env mkdir -p /tmp as hmrr@localhost
+ DEBUG [e7cc9719] Command: /usr/bin/env mkdir -p /tmp
+  INFO [e7cc9719] Finished in 7.389 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-2cffd93ade49e4e4277f.sh 0.0%
+  INFO Uploading /tmp/git-ssh-2cffd93ade49e4e4277f.sh 100.0%
+  INFO [4c27b1c2] Running /usr/bin/env chmod 700 /tmp/git-ssh-2cffd93ade49e4e4277f.sh as hmrr@localhost
+ DEBUG [4c27b1c2] Command: /usr/bin/env chmod 700 /tmp/git-ssh-2cffd93ade49e4e4277f.sh
+  INFO [4c27b1c2] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [9a74a563] Running /usr/bin/env git ls-remote  HEAD as hmrr@localhost
+ DEBUG [9a74a563] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-2cffd93ade49e4e4277f.sh" ; /usr/bin/env git ls-remote  HEAD )
+ DEBUG [9a74a563] 	fatal: 'HEAD' does not appear to be a git repository
+ DEBUG [9a74a563] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:41:42 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [72f4e980] Running /usr/bin/env mkdir -p /tmp as hmrr@localhost
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:42:11 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [751a362e] Running /usr/bin/env mkdir -p /tmp as hmrr@localhost
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:43:16 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [bd9fb20b] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:44:50 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [efed4515] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [efed4515] Finished in 5.964 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-9cfddea4bc9b5968b1d9.sh 100.0%
+  INFO [118d9d28] Running /usr/bin/env chmod 700 /tmp/git-ssh-9cfddea4bc9b5968b1d9.sh as hmrr@192.168.168.151
+  INFO [118d9d28] Finished in 0.048 seconds with exit status 0 (successful).
+  INFO [b6e90b17] Running /usr/bin/env git ls-remote  HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 01:47:22 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [05d49cbb] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [05d49cbb] Finished in 5.257 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-261d8976aa6687e05df0.sh 100.0%
+  INFO [5ecc5e0d] Running /usr/bin/env chmod 700 /tmp/git-ssh-261d8976aa6687e05df0.sh as hmrr@192.168.168.151
+  INFO [5ecc5e0d] Finished in 0.006 seconds with exit status 0 (successful).
+  INFO [fccfd978] Running /usr/bin/env git ls-remote git@github.com:salman-4w/grainweb.git HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 02:18:24 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [06e2f35c] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [06e2f35c] Finished in 6.925 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-3e2a8272672b4e584b24.sh 100.0%
+  INFO [0bd0d925] Running /usr/bin/env chmod 700 /tmp/git-ssh-3e2a8272672b4e584b24.sh as hmrr@192.168.168.151
+  INFO [0bd0d925] Finished in 0.053 seconds with exit status 0 (successful).
+  INFO [2d052194] Running /usr/bin/env git ls-remote . HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 02:22:39 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [f8d96712] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [a6c975b8] Running /usr/bin/env #<StringIO:0x143ad18> /tmp/git-ssh-d5c335c3780d253e8bb6.sh as hmrr@192.168.168.151
+  INFO [d00a6f6c] Running /usr/bin/env chmod 700 /tmp/git-ssh-d5c335c3780d253e8bb6.sh as hmrr@192.168.168.151
+  INFO [d1ee5b90] Running /usr/bin/env git ls-remote . HEAD as hmrr@192.168.168.151
+  INFO [57ea1c84] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/shared /var/rails/hmcustomers/releases as hmrr@192.168.168.151
+  INFO [b8ca41ce] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/shared/bin /var/rails/hmcustomers/shared/log /var/rails/hmcustomers/shared/tmp /var/rails/hmcustomers/shared/vendor/bundle /var/rails/hmcustomers/shared/public/system as hmrr@192.168.168.151
+  INFO [17547bec] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/shared/config as hmrr@192.168.168.151
+  INFO The repository mirror is at /var/rails/hmcustomers/repo
+  INFO [33196283] Running /usr/bin/env git remote set-url origin . as hmrr@192.168.168.151
+  INFO [17cf81ac] Running /usr/bin/env git remote update --prune as hmrr@192.168.168.151
+  INFO [2a59425c] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/releases/20220416062239 as hmrr@192.168.168.151
+  INFO [8acd8cf0] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/rails/hmcustomers/releases/20220416062239 as hmrr@192.168.168.151
+  INFO [52695dcb] Running /usr/bin/env echo "" > REVISION as hmrr@192.168.168.151
+  INFO [733b3628] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/releases/20220416062239/config as hmrr@192.168.168.151
+  INFO [d1ab2c73] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/releases/20220416062239 /var/rails/hmcustomers/releases/20220416062239/vendor /var/rails/hmcustomers/releases/20220416062239/public as hmrr@192.168.168.151
+  INFO [9583cc24] Running /usr/bin/env ln -s /var/rails/hmcustomers/releases/20220416062239 /var/rails/hmcustomers/releases/current as hmrr@192.168.168.151
+  INFO [ee426dbb] Running /usr/bin/env mv /var/rails/hmcustomers/releases/current /var/rails/hmcustomers as hmrr@192.168.168.151
+  INFO [af13543a] Running /usr/bin/env echo "Branch master (at ) deployed as release 20220416062239 by hmrr" >> /var/rails/hmcustomers/revisions.log as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 02:24:09 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [04d10eed] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [dd44b221] Running /usr/bin/env #<StringIO:0x1eaeca4> /tmp/git-ssh-58e9f514f802a4bd2027.sh as hmrr@192.168.168.151
+  INFO [b7793e14] Running /usr/bin/env chmod 700 /tmp/git-ssh-58e9f514f802a4bd2027.sh as hmrr@192.168.168.151
+  INFO [45c15f61] Running /usr/bin/env git ls-remote . HEAD as hmrr@192.168.168.151
+  INFO [9b1eae3e] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/shared /var/rails/hmcustomers/releases as hmrr@192.168.168.151
+  INFO [63289764] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/shared/bin /var/rails/hmcustomers/shared/log /var/rails/hmcustomers/shared/tmp /var/rails/hmcustomers/shared/vendor/bundle /var/rails/hmcustomers/shared/public/system as hmrr@192.168.168.151
+  INFO [df6ef82e] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/shared/config as hmrr@192.168.168.151
+  INFO The repository mirror is at /var/rails/hmcustomers/repo
+  INFO [9d90226e] Running /usr/bin/env git remote set-url origin . as hmrr@192.168.168.151
+  INFO [c80319e9] Running /usr/bin/env git remote update --prune as hmrr@192.168.168.151
+  INFO [e21795e3] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/releases/20220416062409 as hmrr@192.168.168.151
+  INFO [299f6f87] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/rails/hmcustomers/releases/20220416062409 as hmrr@192.168.168.151
+  INFO [65289b0f] Running /usr/bin/env echo "" > REVISION as hmrr@192.168.168.151
+  INFO [b90ad7be] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/releases/20220416062409/config as hmrr@192.168.168.151
+  INFO [3cb06d94] Running /usr/bin/env mkdir -p /var/rails/hmcustomers/releases/20220416062409 /var/rails/hmcustomers/releases/20220416062409/vendor /var/rails/hmcustomers/releases/20220416062409/public as hmrr@192.168.168.151
+  INFO [78814b0c] Running /usr/bin/env ln -s /var/rails/hmcustomers/releases/20220416062409 /var/rails/hmcustomers/releases/current as hmrr@192.168.168.151
+  INFO [983d73a2] Running /usr/bin/env mv /var/rails/hmcustomers/releases/current /var/rails/hmcustomers as hmrr@192.168.168.151
+  INFO [ee4ff0ec] Running /usr/bin/env echo "Branch master (at ) deployed as release 20220416062409 by hmrr" >> /var/rails/hmcustomers/revisions.log as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 02:26:18 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ca7b2a37] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [ca7b2a37] Finished in 5.568 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-3d25d708047d25f3968f.sh 100.0%
+  INFO [1d01138d] Running /usr/bin/env chmod 700 /tmp/git-ssh-3d25d708047d25f3968f.sh as hmrr@192.168.168.151
+  INFO [1d01138d] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [b3875c9e] Running /usr/bin/env git ls-remote . HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 02:28:30 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a71aaf24] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [a71aaf24] Finished in 5.484 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-0178a24b9778ec05818f.sh 100.0%
+  INFO [7125f6a3] Running /usr/bin/env chmod 700 /tmp/git-ssh-0178a24b9778ec05818f.sh as hmrr@192.168.168.151
+  INFO [7125f6a3] Finished in 0.009 seconds with exit status 0 (successful).
+  INFO [33492044] Running /usr/bin/env git ls-remote  HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 02:40:57 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b9f45021] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [b9f45021] Finished in 6.642 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-dc089594b9a95b959f72.sh 100.0%
+  INFO [c4d11d6f] Running /usr/bin/env chmod 700 /tmp/git-ssh-dc089594b9a95b959f72.sh as hmrr@192.168.168.151
+  INFO [c4d11d6f] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [38f8721e] Running /usr/bin/env git ls-remote  HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 03:27:11 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [49e5242e] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [49e5242e] Finished in 6.474 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-8b03566dc176f3d27a16.sh 100.0%
+  INFO [5fd3a300] Running /usr/bin/env chmod 700 /tmp/git-ssh-8b03566dc176f3d27a16.sh as hmrr@192.168.168.151
+  INFO [5fd3a300] Finished in 0.007 seconds with exit status 0 (successful).
+  INFO [902fdb59] Running /usr/bin/env git ls-remote  HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 03:34:07 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [544f8b84] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [544f8b84] Finished in 12.246 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-fb016675866e22b8dad6.sh 100.0%
+  INFO [110c7f81] Running /usr/bin/env chmod 700 /tmp/git-ssh-fb016675866e22b8dad6.sh as hmrr@192.168.168.151
+  INFO [110c7f81] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [3c35ef91] Running /usr/bin/env git ls-remote  HEAD as hmrr@192.168.168.151
+  INFO ---------------------------------------------------------------------------
+  INFO START 2022-04-16 03:59:29 -0400 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e7ec1c26] Running /usr/bin/env mkdir -p /tmp as hmrr@192.168.168.151
+  INFO [e7ec1c26] Finished in 6.010 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-0f1c99516d8eeb34854b.sh 100.0%
+  INFO [0399ba7a] Running /usr/bin/env chmod 700 /tmp/git-ssh-0f1c99516d8eeb34854b.sh as hmrr@192.168.168.151
+  INFO [0399ba7a] Finished in 0.008 seconds with exit status 0 (successful).
+  INFO [c5b1d494] Running /usr/bin/env git ls-remote  HEAD as hmrr@192.168.168.151

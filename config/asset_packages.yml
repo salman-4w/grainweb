@@ -1,0 +1,40 @@
+---
+javascripts:
+  - base:
+    - shims
+    - ext-base
+    - ext-all-debug
+    - ext-custom-renderers
+    - ext-fixes
+    - grid/GridExtensions
+    - grid/GridSummary
+    - state/UserSessionProvider
+    - layout/SectionsLayout
+    - MessageBox
+    - application
+
+  - forms:
+    - form/MiscField
+    - form/SearchField
+    - form/validators
+
+  - grid_filters:
+    - menu/EditableItem
+    - menu/RangeMenu
+    - grid/GridFilters
+    - grid/filter/Filter
+    - grid/filter/StringFilter
+    - grid/filter/DateFilter
+    - grid/filter/ListFilter
+    - grid/filter/NumericFilter
+    - grid/filter/BooleanFilter
+
+stylesheets:
+- base:
+  - lib/reset
+  - lib/typography
+  - lib/forms
+  - screen
+  - ext-all
+  - ext-grainweb
+  - ext-gridsummary

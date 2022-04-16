@@ -1,0 +1,11 @@
+<h2>Ladings Requests</h2>
+<p>We'll send you more ladings forms if you're getting low.</p>
+<p>Submit the form below and we'll mail them to you soon.</p>
+<p>Thanks</p>
+
+<% form_tag requests_customer_ladings_path(current_customer),
+     :width => 600, :controls_width => 400 do |f| -%>
+  <%= f.number_field_tag 'amount', nil, :validation => { :allow_blank => false, :allow_decimals => false, :allow_negative => false, :min_value => 1}  %>
+  <%= f.text_area_tag 'address', @customer.ship.to_s, :label => 'Shipping Address', :validation => {:allow_blank => false} %>
+  <%= f.submit_button 'Send' %>
+<% end -%>

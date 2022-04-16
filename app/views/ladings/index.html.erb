@@ -1,0 +1,24 @@
+<% page_title('Ladings') %>
+
+<%= stateful_ui(current_user, :ladings_grid) %>
+
+<h1><%= link_to 'Create a Lading', new_customer_lading_path(current_customer) -%></h1>
+
+<%= render_grid :url => customer_ladings_path(current_customer),
+               :klass => PendingLading,
+               :title => "Pending Ladings",
+               :items_title => 'pending ladings',
+               :select_multiple_rows => true,
+               :html => { :id => 'ladings_grid' },
+               :print_button => true,
+               :search_bar => true -%>
+
+<% content_for :bottom do -%>
+  <%= javascript_include_tag 'ladings' %>
+<% end -%>
+
+<% if flash[:lading_to_print] -%>
+<script type="text/javascript">
+  Ext.onReady( function() { showPrintPrompt("<%= print_customer_lading_path(current_customer, flash[:lading_to_print]) %>"); } );
+</script>
+<% end %>

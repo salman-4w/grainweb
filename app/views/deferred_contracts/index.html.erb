@@ -1,0 +1,81 @@
+<% page_title "Deferred Contracts" %>
+
+<%= stateful_ui current_user, :deferred_contracts_grid %>
+
+<%= render_grid url: deferred_contracts_path,
+               klass: Contract,
+               title: "Deferred Contracts",
+               search_bar: true,
+               html: { id: "deferred_contracts_grid" } do %>
+  tbar: [
+    { text: 'Type: Purchase',
+      scope: this,
+      menu: new Ext.menu.Menu({
+        id: 'type',
+        items: [
+          { text: 'Purchase',
+            checked: true,
+            group: 'type',
+            checkHandler: Ext.grid.applyTopMenuFilter
+          },
+          { text: 'Sale',
+            checked: false,
+            group: 'type',
+            checkHandler: Ext.grid.applyTopMenuFilter
+          }
+        ]
+      })
+    },
+    { text: 'Status: Open',
+      scope: this,
+      menu: new Ext.menu.Menu({
+        id: 'status',
+        items: [
+          { text: 'Open',
+            checked: true,
+            group: 'status',
+            checkHandler: Ext.grid.applyTopMenuFilter
+          },
+          { text: 'Closed',
+            checked: false,
+            group: 'status',
+            checkHandler: Ext.grid.applyTopMenuFilter
+          },
+          { text: 'All',
+            checked: false,
+            group: 'status',
+            checkHandler: Ext.grid.applyTopMenuFilter
+          }
+        ]
+      })
+    },
+    <%= commodity_filter_menu %>,
+    'Search: ', ' ',
+    new Ext.app.SearchField({
+      store: dataStore_for_deferred_contracts_grid,
+      width:320
+    }),
+    '->',
+    { text: 'Print',
+      iconCls: 'print-icon',
+      handler: function(button) { Ext.grid.PrintGrid(grid_for_deferred_contracts_grid); }
+    }
+  ],
+  view: new Ext.grid.GridView({
+    getRowClass: function(record, index, rowParams, store) {
+      return parseInt(record.get('unprocessed')) > 0 ? '' : 'contract-closed';
+    }
+  }),
+<% end -%>
+
+<% content_for :bottom do -%>
+  <%= javascript_include_tag "contracts" %>
+<% end -%>
+
+<script type="text/javascript" charset="utf-8">
+Ext.onReady(function() {
+  var bbarOffset = 20;
+  var originalHeight = grid_for_deferred_contracts_grid.getHeight();
+  grid_for_deferred_contracts_grid.setHeight(originalHeight + bbarOffset);
+});
+</script>

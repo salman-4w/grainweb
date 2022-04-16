@@ -1,0 +1,57 @@
+Ext.onReady(function(){
+  Ext.QuickTips.init();
+  // turn on validation errors beside the field globally
+  Ext.form.Field.prototype.msgTarget = 'side';
+
+  var form = new Ext.FormPanel({
+    id: '<%= id %>',
+    labelWidth: <%= label_width %>, // label settings here cascade unless overridden
+    labelAlign: '<%= label_align %>',
+    buttonAlign: '<%= button_align %>',
+    url: '<%= action %>',
+    frame: false,
+    bodyStyle: 'padding: 5px',
+    width: <%= width %>,
+    defaults: { width: <%= controls_width %> },
+    monitorValid:true,
+    border: <%= border %>,
+
+<% if %w{get post}.include?(method.to_s) -%>
+    method: '<%= method.to_s.upcase %>',
+<% end -%>
+
+<% unless ajax_form -%>
+    onSubmit: Ext.emptyFn,
+    submit: function() {
+      // due ExtJS bug we need to set up submit url by hand
+      // http://extjs.com/forum/showthread.php?p=220949
+      var dom = Ext.getCmp('<%= id %>').getForm().getEl().dom;
+      dom.action = '<%= action %>';
+      dom.submit();
+    },
+<% end -%>
+
+    keys: new Ext.KeyMap(document, {
+      key: Ext.EventObject.ENTER,
+      stopEvent: true,
+<% if handle_enter_key -%>
+      fn: function() {
+        var form = Ext.getCmp('<%= id %>').getForm();
+        if(form.isValid()) form.submit();
+      },
+<% else -%>
+      fn: function() {}, // Safari submit form by enter pressing every time, prevent it
+<% end -%>
+      scope: this
+    }),
+
+<% if listeners -%>
+    listeners: <%= listeners.html_safe %>,
+<% end -%>
+
+    items: [
+<% if !%w{get post}.include?(method.to_s) -%>
+    { xtype: 'hidden',
+      name: '_method',
+      value: '<%= method.to_s %>' },
+<% end -%>

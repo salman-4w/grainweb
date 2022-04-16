@@ -1,0 +1,349 @@
+/* --------------------------------------------------------------
+
+   Boilerplate Screen Styles
+   * Version:   0.5 (2007-11-19)
+
+-------------------------------------------------------------- */
+
+/* All includes moved into config/asset_packages.yml */
+
+/* Page
+-------------------------------------------------------------- */
+body {
+  font: 13px/23px Helvetica, Arial, "Helvetica Neue", Geneva, sans-serif;
+  background: #e4e3e3;
+  color: #333;
+  padding: 20px 0px 40px;
+}
+
+#page {
+  margin: 0 auto 20px;
+  width: 960px;
+  background: #fff;
+  border: 1px solid silver;
+  height: auto;
+}
+
+
+/* Header
+-------------------------------------------------------------- */
+
+.header {
+  width: 940px;
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 130px;
+  margin-bottom: 20px;
+  background: white;
+}
+.header.hm {
+  background: white url(/images/phone_home.png) no-repeat;
+}
+
+.logo {
+  width: 457px;
+  height: 130px;
+  display: inline;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 10px;
+  padding-left: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+div.top-menu {
+  color: #C09D13;
+  text-align: right;
+  overflow: auto;
+  margin-right: 68px;
+}
+
+div.top-menu ul {
+  margin: 0; /*offset of tabs relative to browser left edge*/
+  font: 12px Georgia, "Times New Roman", Times, serif;
+  list-style-type: none;
+  float: right;
+  padding-top: 30px;
+  padding-bottom: 0;
+}
+
+div.top-menu li {
+  display: inline;
+  margin: 0;
+  color: #C09D13;
+}
+
+div.top-menu li a {
+  text-decoration: none;
+  color: #C09D13;
+}
+
+div.top-menu li a:visited{
+  color: #C09D13;
+}
+
+div.top-menu .customer-form-container {
+  clear: right;
+  float: right;
+  padding-right: 0px;
+  padding-top: 10px;
+}
+
+div.top-menu .customer-form-container FORM {
+  border: 0px;
+  margin: 0px;
+  padding: 0px !important;
+  float: right;
+  text-align: left;
+}
+
+/* Body
+-------------------------------------------------------------- */
+
+#body {
+  padding: 0 20px;
+  clear:both;
+}
+
+a {
+  color: #C09D13;
+}
+
+a:visited {
+  color: #C09D13;
+}
+
+p.big-link {
+  font-size: medium;
+  padding: 5px 0px 7px;
+}
+
+p.centered {
+  text-align: center;
+}
+
+#content h1 {
+  font-size: 105%;
+  padding: 10px 15px 5px;
+}
+
+#content p {
+  padding: 10px 15px;
+}
+
+div.center {text-align: center; width: 375px; margin: 0 auto; }
+
+div.centered-map {text-align: center; width: 50%; margin-left: 20%; margin-right: 20%; clear: both;}
+
+div.form-wrapper { padding: 15px; }
+
+#left-menu {
+  float: left;
+  padding-top: 20px;
+  width: 60px;
+}
+
+#left-menu li {
+  border: 1px solid silver;
+  border-right: 0px;
+  margin-bottom: 5px;
+  padding: 2px;
+  color: #C09D13;
+  cursor: pointer;
+}
+
+#left-menu li.selected {
+  background-color: #C09D13;
+  color: #FFFFFF;
+  border-right: 1px solid #C09D13;
+}
+
+#content {
+  float: left;
+  padding: 5px;
+  width: 790px;
+  min-height: 250px;
+  border: 1px solid silver;
+}
+
+.map-form {
+  text-align: left !important;
+  padding: 15px 0px 5px 40px;
+}
+
+.map-form P {
+  text-align: center;
+}
+
+#messages {
+  line-height: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.notice { color: #449006; }
+
+.error { color: red; }
+
+div.grid-container {
+  width: 100%;
+}
+
+.contract-closed {
+  background-color: #efefef;
+}
+
+div.list dl {
+  float: left;
+  clear: left;
+  width: 100%;
+  padding: 5px 5px 0px 5px;
+  border-bottom: 1px solid #EDEDED;
+}
+
+div.list dl dt, div.list dl dd {
+  float: left;
+}
+
+div.list dl dt {
+  width: 110px;
+}
+
+.left-floated {
+  float: left;
+  padding-right: 5px;
+}
+
+.right-floated {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+div.markerTooltip {
+  color: white;
+  font-weight: bold;
+  background-color: #666666;
+  white-space: nowrap;
+  margin: 0;
+  padding: 2px 4px;
+  border: 1px solid black;
+}
+
+div#customer_info {
+  text-align: left;
+  width: 400px;
+}
+
+div.row-action-item {
+  background-repeat: no-repeat;
+  cursor: pointer;
+  float: right;
+  height: 16px;
+  margin: 0 5px 0 0;
+  min-width: 16px;
+  overflow: hidden;
+}
+
+div.row-action-item.icon-save {
+  background-image: url(/images/save.png) !important;
+}
+
+div.row-action-item.icon-delete {
+  background-image:url(/images/delete.png) !important;
+}
+
+.x-panel-body dd a {
+  /* text-decoration: none; */
+  color: #C09D13;
+}
+
+.x-panel-body dd a:visited{
+  color: #C09D13;
+}
+
+TABLE#new_lading_form TD {
+  vertical-align: top;
+  padding-left: 5px;
+}
+
+TABLE#weights_table {
+  border: 1px solid black;
+  padding: 2px;
+  width: 100%;
+}
+
+#weights_table TH, #weights_table TD {
+  border-right: 1px solid black;
+  padding: 2px 2px 2px 4px;
+}
+
+#weights_table TH {
+  background-color: #C09D13;
+  color: white;
+}
+
+#weights_table TR.odd TD {
+  background-color: #E4E3E3;
+}
+
+TABLE#buttons_for_new_lading {
+  margin-top: 6px;
+}
+
+TABLE#buttons_for_new_lading TD {
+  padding-left: 0px;
+}
+
+#save_btn_container, #discard_btn_container {
+  padding: 4px 0px;
+}
+
+#discard_btn_container {
+  float: right;
+}
+
+/* IE7 hack */
+*:first-child+html #discard_btn_container {
+  text-align: right;
+}
+
+/* TODO: check me */
+
+/* #resources { float: left; width: 230px; } */
+/* #resources h3 { color: #888; } */
+/* #resources ul, #resources ol { color: #888; } */
+/* #resources ul a { color: #555; } */
+
+.print-icon {
+  /* overflow: hidden; */
+  width: 16px;
+  height: 16px;
+  /* float: right; */
+  /* cursor: pointer; */
+  /* background: transparent url(/images/grainweb/panel/tool-sprites.gif) no-repeat; */
+  background: transparent url(/images/print.png) no-repeat left center !important;
+  /* background-position: 0 -315px; */
+  /* margin-left: 2px; */
+}
+
+/* Footer
+-------------------------------------------------------------- */
+/* TODO: check me */
+#footer {
+  width: 800px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+  font-size: 85%;
+}
+
+#footer .tabs { width: 405px; border-top: 3px solid #eee; }
+#footer .tabs a { padding: 10px 30px 10px 0; color: #666; text-decoration: none; }
+#footer p { text-align: right; }
+#footer p.quiet { color: #ccc; }

@@ -1,0 +1,52 @@
+<% page_title "Invoices" %>
+
+<%= stateful_ui current_user, :invoices_grid %>
+
+<%= render_grid url: invoices_path,
+      klass: Invoice,
+      title: "Customer ##{current_customer.cust_id} Invoices",
+      default_sort: ["days_due", "desc"],
+      search_bar: true,
+      html: { id: "invoices_grid" } do %>
+  tbar: [{
+    text: 'Status: Unpaid',
+    menu: new Ext.menu.Menu({
+      id: 'status',
+      items: [
+        { text: 'Unpaid',
+          checked: true,
+          group: 'status',
+          checkHandler: Ext.grid.applyTopMenuFilter
+        },
+        { text: 'Paid',
+          checked: false,
+          group: 'status',
+          checkHandler: Ext.grid.applyTopMenuFilter
+        },
+        { text: 'All',
+          checked: false,
+          group: 'status',
+          checkHandler: Ext.grid.applyTopMenuFilter
+        }
+      ]
+    })},
+    <%= commodity_filter_menu %>,
+    'Search: ', ' ',
+    new Ext.app.SearchField({
+      store: dataStore_for_invoices_grid,
+      width:320
+    }),
+    '->',
+    { text: 'Print',
+      iconCls: 'print-icon',
+      handler: function(button) { Ext.grid.PrintGrid(grid_for_invoices_grid); }
+    }],
+<% end -%>
+
+<script type="text/javascript" charset="utf-8">
+Ext.onReady(function() {
+  var bbarOffset = 20;
+  var originalHeight = grid_for_invoices_grid.getHeight();
+  grid_for_invoices_grid.setHeight(originalHeight + bbarOffset);
+});
+</script>

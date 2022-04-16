@@ -1,0 +1,34 @@
+<div id="left-menu">
+  <ul>
+    <% if logged_in? -%>
+      <%= left_nav_tab "Home", home_path %>
+      <% if current_customer -%>
+        <% if current_customer.can_view_contracts? %>
+          <%= left_nav_tab "Contracts", contracts_path %>
+        <% end %>
+
+        <% if current_customer.can_view_deferred_contracts? %>
+          <%= left_nav_tab "Deferred", deferred_contracts_path  %>
+        <% end %>
+
+        <% if current_customer.can_view_invoices? %>
+          <%= left_nav_tab "Invoices", invoices_path %>
+        <% end %>
+
+        <% if current_customer.can_view_ladings? %>
+          <%= left_nav_tab "Ladings", ladings_path  %>
+        <% end %>
+
+        <% if current_customer.can_view_checks? %>
+          <%= left_nav_tab "Checks", checks_path  %>
+        <% end %>
+
+        <% if current_customer.can_view_holdings? %>
+          <%= left_nav_tab "Holdings", holdings_path  %>
+        <% end %>
+
+        <%= left_nav_tab "Reports", reports_path %>
+      <% end -%>
+    <% end -%>
+  </ul>
+</div>

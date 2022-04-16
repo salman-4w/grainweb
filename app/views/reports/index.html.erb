@@ -1,0 +1,14 @@
+<% page_title("Reports") %>
+
+<h1>Reports</h1>
+<p>Welcome to the new Reports section. We are just getting started. Please <a href="/contact">let us know</a> what reports you'd like access to!</p>
+<% if current_customer.producer? %>
+<p><%= link_to_function "Proof of Yield", "printReport()" %></p>
+<% else %>
+<p style="text-align: center; font-style: italic;">Sorry, we don't have any reports that you'd be interested in yet.</p>
+<% end %>
+
+
+<% content_for :bottom do -%>
+  <%= javascript_include_tag "reports" %>
+<% end -%>

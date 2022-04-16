@@ -1,0 +1,264 @@
+<%
+  path, method = @lading.new_record? ? [customer_ladings_path(current_customer), 'post'] : [customer_lading_path(current_customer, @lading), 'put']
+%>
+<form id="new_lading_form" action="<%= path %>" method="post">
+<input type="hidden" name="_method" id="form_method" value="<%= method %>">
+<input type="hidden" name="<%= request_forgery_protection_token.to_s %>" value="<%= form_authenticity_token %>">
+<input type="hidden" name="lading[draft]" id="lading_draft" value="<%= @lading.draft %>">
+<table id="new_lading_form">
+	<tr>
+		<td id="shipped_form"></td>
+		<td id="carrier_form"></td>
+	</tr>
+	<tr>
+    <td id="weights_form"></td>
+		<td>
+			<table id="buttons_for_new_lading">
+				<tr><td colspan="2" id="submit_btn_container"></td></tr>
+				<tr><td id="save_btn_container"></td><td id="discard_btn_container"></td></tr>
+			</table>
+		<td>
+	</tr>
+</table>
+</form>
+<div style="display: none;">
+	<%= form_for :lading, :html => {:id => 'l_form', :label_width => 120, :border => false, :listeners => '{"clientvalidation": { fn: checkButtonsState, scope: this}}'} do |f| -%>
+	  <% field_set_tag 'Shipped From', :width => 320, :height => 217, :auto_height => false, :render_to => 'shipped_form' do -%>
+	    <%= f.text_field_tag :fake_lading_num, @lading.new_record? ? 'Auto-generated' : @lading.lading_num, :label => 'Lading Num', :width => 160, :disabled => true %>
+	    <%= f.date_field :lading_date, :label => 'Date', :width => 160 %>
+	    <%= f.text_field :shipper, :label => 'Shipper', :disabled => true, :width => 160 %>
+	    <%= f.select :contract_number, open_contract_numbers_for_select(current_customer),
+	          :label => 'Contract #', :width => 160,
+            :listeners => '{"blur" : { fn: searchContractNumber, scope: this}}' -%>
+	    <%= f.text_field :origin, :label => 'Origin', :disabled => true, :width => 160 %>
+	    <%= f.select :grain_loaded, commodities_for_select(current_customer), :label => 'Grain Loaded', :width => 160,
+          :validation => {:allow_blank => false},
+          :listeners => '{"select" : { fn: calculateWeights, scope: this}}' %>
+	    <%= f.text_field :load_tick_num, :label => 'Scale Ticket #', :width => 160 %>
+	  <% end -%>
+	  <% field_set_tag 'Carrier', :width => 330, :height => 217, :auto_height => false, :label_width => 120, :render_to => 'carrier_form' do -%>
+	    <%= f.text_field :carr_id, :label => 'Firm', :width => 160 %>
+			<%= f.text_field :tractor_license_num, :label => 'Tractor License #', :width => 160 %>
+			<%= f.text_field :trailer_license_num, :label => 'Trailer License #', :width => 160 %>
+			<%= f.text_field :driver_license_num, :label => 'Driver License #', :width => 160, :listeners => '{"blur" : { fn: searchLicense, scope: this}}' %>
+			<%= f.text_field :driver_name, :label => 'Name', :width => 160 %>
+			<%= f.state_select :driver_license_state, :label => 'State', :width => 160 %>
+		<% end -%>
+	  <% field_set_tag 'Loading Weights', :width => 320, :label_width => 100, :render_to => 'weights_form' do -%>
+	    <%= f.text_field :load_gross_weight, :label => 'Gross',
+          :width => 160,
+          :validator => "validateWeights",
+          :validation => {:vtype => 'float'},
+          :listeners => '{"blur" : { fn: calculateWeights, scope: this}}' %>
+	    <%= f.text_field :load_tare_weight, :label => 'Tare',
+          :width => 160,
+          :validator => "validateWeights",
+          :validation => {:vtype => 'float'},
+          :listeners => '{"blur" : { fn: calculateWeights, scope: this}}' %>
+	    <%= f.text_field :load_net_weight, :label => 'Net', :width => 160, :read_only => true %>
+	    <%= f.text_field :load_bus_weight, :label => 'Bus', :width => 160, :read_only => true %>
+    <% end %>
+	<% end -%>
+</div>
+<script type="text/javascript" charset="utf-8">
+Ext.onReady( function() {
+  new Ext.Button({
+    id: 'submit_btn',
+    text: 'Submit to <%= Hmcustomers.config.company_name %>',
+    renderTo: 'submit_btn_container',
+    minWidth: 330,
+    disabled: true,
+    handler: function() { submitLading(); }
+  });
+
+  new Ext.Button({
+    id: 'save_btn',
+    text: 'Finish Later',
+    renderTo: 'save_btn_container',
+    minWidth: 150,
+    disabled: true,
+    handler: function() { saveLading(); }
+  });
+
+  new Ext.Button({
+    id: 'discard_btn',
+    text: 'Cancel',
+    renderTo: 'discard_btn_container',
+    minWidth: 150,
+    disabled: false,
+    handler: function() {
+      if( Ext.get('lading_draft').dom.value == 'true' ) {
+        Ext.Ajax.request({
+          url: '/customers/<%= current_customer.cust_id %>/ladings/' + '<%= @lading.id %>',
+          params: { <%= request_forgery_protection_token.to_s %>: '<%= form_authenticity_token %>' },
+          method: 'DELETE',
+          success: function(xhr) { window.location.href = '/customers/<%= current_customer.cust_id %>/ladings'; }
+        });
+      } else {
+        window.location.href = '/customers/<%= current_customer.cust_id %>/ladings';
+      }
+    }
+  });
+});
+
+function calculateWeights(field) {
+  var commoditySelect = Ext.getCmp('lading_grain_loaded');
+  if( !field.isValid() || !commoditySelect.isValid() ) return;
+
+  var convFactors = <%= CommConv.bushels_conv_factors_map.to_json.html_safe %>;
+  var commodityId = commoditySelect.getValue();
+
+  var loadGrossValue = Ext.getCmp('lading_load_gross_weight').getValue();
+  var loadTareValue = Ext.getCmp('lading_load_tare_weight').getValue();
+
+  var loadNetValue = loadGrossValue - loadTareValue;
+  var loadBusValue = loadNetValue / convFactors[commodityId];
+
+  Ext.getCmp('lading_load_net_weight').setValue(loadNetValue);
+  Ext.getCmp('lading_load_bus_weight').setValue(loadBusValue);
+}
+
+function validateWeights(value) {
+  var currentElementId = this.getId();
+
+  if( currentElementId == "lading_load_gross_weight" ) { // loading: gross less than tare
+    var tareElm = Ext.getCmp('lading_load_tare_weight');
+    if( tareElm && parseFloat(value) < parseFloat(tareElm.getValue()) ) {
+      return "Can't be less than Loading Tare";
+    }
+  } else if( currentElementId == "lading_load_tare_weight" ) { // loading: tare greater than gross
+    var grossElm = Ext.getCmp('lading_load_gross_weight');
+    if( grossElm && parseFloat(value) > parseFloat(grossElm.getValue()) ) {
+      return "Can't be greater than Loading Gross";
+    }
+  }
+
+  return true;
+}
+
+function searchContractNumber(field) {
+  if( !field.isValid() ) return;
+
+  if( Ext.isEmpty(field.getValue()) ) {
+    Ext.getCmp('lading_origin').setValue("");
+    return;
+  }
+
+  Ext.Ajax.request({
+    url: '/customers/<%= current_customer.cust_id -%>/contracts/' + field.getValue() + '/search',
+    method: 'GET',
+    success: function(xhr) {
+      Ext.getCmp('lading_origin').setValue(xhr.responseText);
+    },
+    failure: function() {
+      field.markInvalid('Contract not found');
+    }
+  });
+  return true;
+}
+
+function toggleCarrierFields(disable) {
+  var fields = ['lading_driver_license_num', 'lading_driver_name', 'lading_driver_license_state'];
+  for(var i = 0; i < fields.length; i++) {
+    Ext.getCmp(fields[i]).setDisabled(disable);
+  }
+
+  // workaround for FF (and partially Safari) bug when the cursor disappeared after
+  // fields enabling
+  if(!disable) {
+    var nameCtrl = Ext.get('lading_driver_name').dom;
+    nameCtrl.blur();
+    nameCtrl.focus();
+  }
+};
+
+function searchLicense(field) {
+  if( !field.isValid() || Ext.isEmpty(field.getValue()) ) return;
+
+  // disable all fields before request
+  toggleCarrierFields(true);
+
+  Ext.Ajax.request({
+    url: '/driver_licenses/' + field.getValue() + '/search',
+    method: 'GET',
+    success: function(xhr) {
+      var result = Ext.util.JSON.decode(xhr.responseText);
+      for( var key in result ) {
+        Ext.getCmp('lading_' + key).setValue(result[key]);
+      }
+      toggleCarrierFields(false);
+    },
+    failure: function() {
+      // just enable fields if license not found
+      toggleCarrierFields(false);
+    }
+  });
+  return true;
+}
+
+function isValidForDraft() {
+  // "Lading Contract #" can be validated via AJAX, so check the CSS class to make sure
+  el = Ext.getCmp('lading_contract_number');
+  if( el.isValid(true) && el.getEl().hasClass(el.invalidClass) ) return false;
+
+  var notValid = false;
+  var fields = ['lading_lading_date', 'lading_contract_number', 'lading_grain_loaded', 'lading_load_tick_num',
+   'lading_driver_license_num', 'lading_carr_id', 'lading_driver_name', 'lading_driver_license_state',
+   'lading_load_gross_weight', 'lading_load_tare_weight', 'lading_load_net_weight', 'lading_load_bus_weight'];
+  for(var i = 0; i < fields.length; i++) {
+    var el = Ext.getCmp(fields[i]);
+    if(!(el.isValid(true) || Ext.isEmpty(el.getValue()))) {
+      notValid = true;
+      break;
+    }
+  }
+  return !notValid;
+}
+
+function checkButtonsState(form, isValid) {
+  if( isValid ) {
+    var buttons = ['submit_btn', 'save_btn'];
+    for(var i = 0; i < buttons.length; i++) {
+      Ext.getCmp(buttons[i]).setDisabled(false);
+    }
+  } else {
+    Ext.getCmp('submit_btn').setDisabled(true);
+    Ext.getCmp('save_btn').setDisabled(!isValidForDraft());
+  }
+}
+
+function submitLadingForm() {
+  // fix dropdown values
+  var dropdowns = ['lading_contract_number', 'lading_grain_loaded', 'lading_driver_license_state'];
+  for(var i = 0; i < dropdowns.length; i++) {
+    Ext.get(dropdowns[i]).dom.value = Ext.getCmp(dropdowns[i]).getValue();
+  }
+
+  Ext.get('new_lading_form').dom.submit();
+}
+
+function saveLading() {
+  Ext.get('lading_draft').dom.value = true;
+  submitLadingForm();
+}
+
+function submitLading() {
+  Ext.get('lading_draft').dom.value = false;
+
+  // Check selected commodity (Grain Loaded) and prompt to confirm if it not in customer's list of open contracts
+  // return true if user click "Yes"
+  var dropdown = Ext.getCmp('lading_grain_loaded');
+  var value = dropdown.getValue();
+  if( !Ext.isEmpty(value) ) {
+    var store = dropdown.getStore();
+    // data saved in format [label, value, used]
+    if( !store.getAt(store.findExact("value", value)).json[2] ) {
+      Ext.Msg.confirm('Warning', "Chosen Grain Loaded is not in customer's list of open contracts. Are you sure you want submit a lading?", function(btn) {
+        if(btn == 'yes') submitLadingForm();
+      });
+    } else {
+      submitLadingForm();
+    }
+  }
+}
+</script>

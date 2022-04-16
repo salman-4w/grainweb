@@ -1,0 +1,5 @@
+<% if params[:location] == "home" %>
+  window.location.href = "<%= home_path %>";
+<% else %>
+    window.location.href = window.location.href.replace(/\/customers\/.*?\//, '/customers/<%= current_customer.cust_id %>/');
+<% end %>

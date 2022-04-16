@@ -1,0 +1,16 @@
+shared:
+  domain: "www.hmcustomers.com"
+  namespace: "hm"
+  company_name: "Hansen-Mueller"
+  company_url: "http://66.23.235.144"
+  system_email: "hmcustomers@hmgrain.com"
+  contact_email: "hmclients@rsdcompany.com"
+
+development:
+  lading_requests_email: "jerod@rsdcompany.com"
+
+production:
+  ga_account: "UA-3287978-15"
+  lading_requests_email: "jerod@rsdcompany.com"
+test:
+  lading_requests_email: "test@test.com"

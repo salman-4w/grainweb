@@ -1,0 +1,51 @@
+<% page_title "Holdings" %>
+
+<%= stateful_ui current_user, :holdings_grid %>
+
+<% render_grid url: holdings_path,
+     klass: TicketApp,
+     title: "Holdings",
+     items_title: "holdings",
+     print_button: true,
+     search_bar: true,
+     html: {id: "holdings_grid"} do -%>
+  tbar: [
+    { text: 'Type: Purchase',
+      scope: this,
+      menu: new Ext.menu.Menu({
+        id: 'type',
+        items: [
+          { text: 'Purchase',
+            checked: true,
+            group: 'type',
+            checkHandler: Ext.grid.applyTopMenuFilter
+          },
+          { text: 'Sale',
+            checked: false,
+            group: 'type',
+            checkHandler: Ext.grid.applyTopMenuFilter
+          }
+        ]
+      })
+    },
+    <%= commodity_filter_menu %>,
+    'Search: ', ' ',
+    new Ext.app.SearchField({
+      store: dataStore_for_holdings_grid,
+      width:320
+    }),
+    '->',
+    { text: 'Print',
+      iconCls: 'print-icon',
+      handler: function(button) { Ext.grid.PrintGrid(grid_for_holdings_grid); }
+    }],
+<% end %>
+
+<script type="text/javascript" charset="utf-8">
+Ext.onReady( function() {
+  // change grid height to remove vertical scrollbar
+  var bbarOffset = 20;
+  var originalHeigth = grid_for_holdings_grid.getHeight();
+  grid_for_holdings_grid.setHeight(originalHeigth + bbarOffset);
+});
+</script>

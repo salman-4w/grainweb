@@ -1,0 +1,13 @@
+    <% if protect_against_forgery? -%> {
+      xtype: 'hidden',
+      name: '<%= request_forgery_protection_token.to_s %>',
+      value: '<%= form_authenticity_token %>'
+    }<% end -%>],
+
+    buttons: [
+      <%= yield :"buttons_for_#{id}" %>
+    ]
+  });
+
+  form.render('<%= id %>-container');
+});
