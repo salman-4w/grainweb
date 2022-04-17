@@ -10,13 +10,13 @@ class LoginsController < ApplicationController
       mailto = @user.email_address
       subject =  "'Your #{Hmcustomers.config.company_name} log in information' "
 
-      filename ="/var/rails/hmcustomers/app/mail/4wmailer.bat"
+      filename ="/var/rails/hmcustomers/current/app/mail/4wmailer.bat"
       target = open(filename, 'w')
       target.truncate(0)
       line1 = "mail -aFrom:administrator@hansenmueller.com -s "
       line2 = subject
       line3 = mailto
-      line4 = " -b avg2fourw@gmail.com </var/rails/hmcustomers/app/mail/mail.txt"
+      line4 = " -b avg2fourw@gmail.com </var/rails/hmcustomers/current/app/mail/mail.txt"
       target.write(line1)
       target.write(line2)
       target.write(line3)
@@ -24,7 +24,7 @@ class LoginsController < ApplicationController
       target.write("\n")
       target.close
 
-      mailfilename ="/var/rails/hmcustomers/app/mail/mail.txt"
+      mailfilename ="/var/rails/hmcustomers/current/app/mail/mail.txt"
       target = open(mailfilename, 'w')
       target.truncate(0)
       line1 = "Hello "
@@ -57,7 +57,7 @@ class LoginsController < ApplicationController
       target.write("\n")
       target.close
 
-      val = `/var/rails/hmcustomers/app/mail/4wmailer.bat`
+      val = `/var/rails/hmcustomers/current/app/mail/4wmailer.bat`
       redirect_to new_session_url, notice: "We emailed you your username!"
     else
       flash[:error] = "Incorrect Email"
